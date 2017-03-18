@@ -49,3 +49,9 @@ PRODUCT_COPY_FILES += \
     vendor/fred/prebuilt/bin/backuptool_ab.functions:system/bin/backuptool_ab.functions \
     vendor/fred/prebuilt/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
 endif
+
+# Include hostapd configuration
+PRODUCT_COPY_FILES += \
+    vendor/fred/prebuilt/etc/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
+    vendor/fred/prebuilt/etc/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny \
+    vendor/fred/prebuilt/etc/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept
