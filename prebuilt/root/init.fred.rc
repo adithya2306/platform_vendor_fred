@@ -34,3 +34,8 @@ on property:sys.io.scheduler=*
 
 on property:persist.sys.io.scheduler=*
     setprop sys.io.scheduler ${persist.sys.io.scheduler}
+
+on post-fs-data
+    # Create an additional OTA package directory that unlike /data/ota_package
+    # will not be touched by GmsCore.
+    mkdir /data/fredos_updates 0770 system cache
