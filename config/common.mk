@@ -81,6 +81,9 @@ include vendor/fred/sepolicy/sepolicy.mk
 # Branding
 include vendor/fred/config/branding.mk
 
+# Themes
+include vendor/fred/config/themes.mk
+
 # TCP Connection Management
 PRODUCT_PACKAGES += tcmiface
 PRODUCT_BOOT_JARS += tcmiface
