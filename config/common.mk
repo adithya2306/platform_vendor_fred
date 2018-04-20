@@ -58,3 +58,15 @@ PRODUCT_COPY_FILES += \
     vendor/fred/prebuilt/etc/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
     vendor/fred/prebuilt/etc/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny \
     vendor/fred/prebuilt/etc/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept
+
+ifneq ($(HOST_OS),linux)
+ifneq ($(sdclang_already_warned),true)
+$(warning **********************************************)
+$(warning * SDCLANG is not supported on non-linux hosts.)
+$(warning **********************************************)
+sdclang_already_warned := true
+endif
+else
+# include definitions for SDCLANG
+include vendor/fred/sdclang/sdclang.mk
+endif
