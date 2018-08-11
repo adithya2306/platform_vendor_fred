@@ -70,3 +70,6 @@ else
 # include definitions for SDCLANG
 include vendor/fred/sdclang/sdclang.mk
 endif
+
+# Include vendor SEPolicy changes
+include vendor/fred/sepolicy/sepolicy.mk
