@@ -76,6 +76,16 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     ViaBrowser
 
+# Screenshot editor (Markup)
+PRODUCT_PACKAGES += MarkupGoogle
+PRODUCT_COPY_FILES += \
+    vendor/fred/prebuilt/lib/libsketchology_native.so:system/lib/libsketchology_native.so \
+
+ifeq ($(TARGET_ARCH),arm64)
+PRODUCT_COPY_FILES += \
+    vendor/fred/prebuilt/lib64/libsketchology_native.so:system/lib64/libsketchology_native.so
+endif
+
 # Pixel sysconfig
 PRODUCT_COPY_FILES += \
     vendor/fred/prebuilt/etc/sysconfig/pixel.xml:system/etc/sysconfig/pixel.xml
