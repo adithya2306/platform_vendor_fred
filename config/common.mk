@@ -70,6 +70,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ViaBrowser
 
+# Pixel sysconfig
+PRODUCT_COPY_FILES += \
+    vendor/fred/prebuilt/etc/sysconfig/pixel.xml:system/etc/sysconfig/pixel.xml
+
 # Fix Google Dialer
 PRODUCT_COPY_FILES +=  \
     vendor/fred/prebuilt//etc/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
