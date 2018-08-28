@@ -1,5 +1,8 @@
 package android
 type Product_variables struct {
+	Should_skip_waiting_for_qsee struct {
+		Cflags []string
+	}
 	Supports_legacy_hw_fde struct {
 		Cflags []string
 	}
@@ -26,6 +29,7 @@ type ProductVariables struct {
 	Target_shim_libs  *string `json:",omitempty"`
 	Target_uses_color_metadata  *bool `json:",omitempty"`
 	Uses_generic_camera_parameter_library  *bool `json:",omitempty"`
+	Should_skip_waiting_for_qsee  *bool `json:",omitempty"`
 	Specific_camera_parameter_library  *string `json:",omitempty"`
 	Supports_legacy_hw_fde  *bool `json:",omitempty"`
 	Uses_qti_camera_device  *bool `json:",omitempty"`
