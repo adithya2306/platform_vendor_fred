@@ -143,6 +143,12 @@ include vendor/fred/config/branding.mk
 # Bootanimations
 include vendor/fred/config/bootanimation.mk
 
+# Accents
+include vendor/fred/config/accents.mk
+
+# Themes
+include vendor/fred/config/themes.mk
+
 # TCP Connection Management
 PRODUCT_PACKAGES += tcmiface
 PRODUCT_BOOT_JARS += tcmiface
