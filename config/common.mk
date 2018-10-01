@@ -184,3 +184,6 @@ PRODUCT_PACKAGES += \
 # Substratum Key
 PRODUCT_COPY_FILES += \
     vendor/fred/prebuilt/priv-app/SubstratumKey.apk:system/priv-app/SubstratumKey/SubstratumKey.apk
+
+# Disable qmi EAP-SIM security
+DISABLE_EAP_PROXY := true
