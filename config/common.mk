@@ -66,6 +66,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Phonograph
 
+# Lawnchair
+PRODUCT_PACKAGES += Lawnchair
+PRODUCT_COPY_FILES += \
+    vendor/fred/prebuilt/etc//permissions/privapp-permissions-lawnchair.xml:system/etc/permissions/privapp-permissions-lawnchair.xml \
+    vendor/fred/prebuilt/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml:system/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml
+
 # ViaBrowser
 PRODUCT_PACKAGES += \
     ViaBrowser
@@ -168,8 +174,3 @@ PRODUCT_PACKAGES += \
 # Substratum Key
 PRODUCT_COPY_FILES += \
     vendor/fred/prebuilt/priv-app/SubstratumKey.apk:system/priv-app/SubstratumKey/SubstratumKey.apk
-
-# Prebuilt packages
-PRODUCT_PACKAGES += \
-    nexuslauncher \
-    pixelbridge
