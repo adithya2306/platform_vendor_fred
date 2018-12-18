@@ -42,4 +42,7 @@
     <dimen name="config_dialogCornerRadius">12.0dip</dimen>
     <dimen name="config_buttonCornerRadius">6.0dip</dimen>
     <dimen name="config_progressBarCornerRadius">1000.0dip</dimen>
+
+    <!-- Specify custom blanking delay of the display -->
+    <integer name="config_screen_off_delay">0</integer>
 </resources>
