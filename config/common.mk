@@ -24,9 +24,6 @@ PRODUCT_COPY_FILES += vendor/fred/prebuilt/etc/apns-conf.xml:system/etc/apns-con
 # Copy init file
 PRODUCT_COPY_FILES += vendor/fred/prebuilt/root/init.fred.rc:root/init.fred.rc
 
-# Recommend using the non debug dexpreopter
-USE_DEX2OAT_DEBUG := false
-
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
 
@@ -37,6 +34,11 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.adb.secure=0
 endif
 
 export VENDOR := fred
+
+# Recommend using the non debug dexpreopter
+USE_DEX2OAT_DEBUG := false
+PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
+PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 
 # Build Snapdragon apps
 PRODUCT_PACKAGES += \
