@@ -113,3 +113,7 @@ PRODUCT_PACKAGES += \
     mkfs.exfat \
     ntfsfix \
     ntfs-3g
+
+# Bootanimation
+PRODUCT_COPY_FILES += \
+    vendor/fred/prebuilt/bootanimation/bootanimation.zip:system/media/bootanimation.zip
