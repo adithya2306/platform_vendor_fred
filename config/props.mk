@@ -33,9 +33,12 @@ ADDITIONAL_BUILD_PROPERTIES += net.tethering.noprovisioning=true
 # Include versioning information
 export FRED_VERSION := Fred-Beta
 export ROM_VERSION := $(FRED_VERSION)-$(shell date -u +%Y%m%d)
+export CAF_VERSION := LA.UM.7.3.r1-06600-sdm845.0
+
 ADDITIONAL_BUILD_PROPERTIES += \
     ro.modversion=$(ROM_VERSION) \
-    ro.fred.version=$(FRED_VERSION)
+    ro.fred.version=$(FRED_VERSION) \
+    ro.caf.version=$(CAF_VERSION)
 
 # Default notification/alarm sounds
 ADDITIONAL_BUILD_PROPERTIES += \
