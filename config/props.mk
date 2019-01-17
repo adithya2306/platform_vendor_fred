@@ -30,19 +30,8 @@ ADDITIONAL_BUILD_PROPERTIES += persist.sys.hideapn=false
 # Allow tethering without provisioning app
 ADDITIONAL_BUILD_PROPERTIES += net.tethering.noprovisioning=true
 
-# Include versioning information
-export FRED_VERSION := Fred-Beta
-export ROM_VERSION := $(FRED_VERSION)-$(shell date -u +%Y%m%d)
-export CAF_VERSION := LA.UM.7.3.r1-06700-sdm845.0
-
-ADDITIONAL_BUILD_PROPERTIES += \
-    ro.modversion=$(ROM_VERSION) \
-    ro.fred.version=$(FRED_VERSION) \
-    ro.caf.version=$(CAF_VERSION)
-
 # Default notification/alarm sounds
 ADDITIONAL_BUILD_PROPERTIES += \
     ro.config.notification_sound=Popcorn.ogg \
     ro.config.alarm_alert=Bright_morning.ogg \
     ro.config.ringtone=Titania.ogg
-
