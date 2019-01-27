@@ -41,8 +41,11 @@ export VENDOR := fred
 # Build Snapdragon apps
 PRODUCT_PACKAGES += \
     SnapdragonGallery \
-    SnapdragonMusic \
     SoundRecorder
+
+# Phonograph
+PRODUCT_PACKAGES += \
+    Phonograph
 
 # Include support for GApps backup
 PRODUCT_COPY_FILES += \
