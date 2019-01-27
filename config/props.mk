@@ -20,8 +20,9 @@ ADDITIONAL_BUILD_PROPERTIES += \
     ro.com.google.clientidbase=android-google \
     ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
     ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
-    ro.setupwizard.require_network=any \
-    ro.setupwizard.mode=OPTIONAL \
+    ro.setupwizard.require_network=false \
+    ro.setupwizard.enterprise_mode=1 \
+    ro.setupwizard.gservices_delay=-1 \
     ro.opa.eligible_device=true
 
 # Don't Hide APNs
