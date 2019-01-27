@@ -130,3 +130,8 @@ PRODUCT_COPY_FILES += \
 # Substratum Key
 PRODUCT_COPY_FILES += \
     vendor/fred/prebuilt/priv-app/SubstratumKey.apk:system/priv-app/SubstratumKey/SubstratumKey.apk
+
+# Prebuilt packages
+PRODUCT_PACKAGES += \
+    nexuslauncher \
+    pixelbridge
