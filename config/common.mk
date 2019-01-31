@@ -126,10 +126,6 @@ PRODUCT_PACKAGES += \
     ntfsfix \
     ntfs-3g
 
-# Bootanimation
-PRODUCT_COPY_FILES += \
-    vendor/fred/prebuilt/bootanimation/bootanimation.zip:system/media/bootanimation.zip
-
 # Substratum Key
 PRODUCT_COPY_FILES += \
     vendor/fred/prebuilt/priv-app/SubstratumKey.apk:system/priv-app/SubstratumKey/SubstratumKey.apk
