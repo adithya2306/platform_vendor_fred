@@ -38,3 +38,17 @@ LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
 include $(BUILD_PREBUILT)
 
 #######################################################
+# Via Browser #########################################
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := ViaBrowser
+LOCAL_SRC_FILES := $(LOCAL_MODULE)/$(LOCAL_MODULE).apk
+LOCAL_MODULE_CLASS := APPS
+LOCAL_MODULE_TAGS := optional
+LOCAL_CERTIFICATE := PRESIGNED
+LOCAL_PRIVILEGED_MODULE := true
+LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
+include $(BUILD_PREBUILT)
+
+#######################################################
+

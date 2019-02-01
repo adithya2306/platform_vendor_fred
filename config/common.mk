@@ -49,6 +49,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Phonograph
 
+# ViaBrowser
+PRODUCT_PACKAGES += \
+    ViaBrowser
+
 # Fix Google Dialer
 PRODUCT_COPY_FILES +=  \
     vendor/fred/prebuilt//etc/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
