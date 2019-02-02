@@ -12,6 +12,23 @@ ROM_VERSION := $(FRED_VERNUM)-$(shell date -u +%Y%m%d)
 # CAF version
 CAF_VERSION := LA.UM.7.3.r1-06700-sdm845.0
 
+ifdef FRED_OFFICIAL
+   LIST = $(shell curl -s https://raw.githubusercontent.com/FredProject/platform_vendor_fred/f9x/fred.devices)
+   FOUND_DEVICE =  $(filter $(CURRENT_DEVICE), $(LIST))
+    ifeq ($(FOUND_DEVICE),$(CURRENT_DEVICE))
+      IS_OFFICIAL=true
+      FRED_BUILD_TYPE := Official
+
+PRODUCT_PACKAGES += \
+    Updater
+
+    endif
+    ifneq ($(IS_OFFICIAL), true)
+       FRED_BUILD_TYPE := Unofficial
+       $(error Device is not official "$(FOUND)")
+    endif
+endif
+
 # Set all versions
 DATE := $(shell date -u +%Y%m%d)
 FRED_BUILD_DATE := $(shell date -u +%Y%m%d-%H%M)
