@@ -10,7 +10,7 @@ TARGET_PRODUCT_SHORT := $(subst fred_,,$(FRED_BUILD_TYPE))
 ROM_VERSION := $(FRED_VERNUM)-$(shell date -u +%Y%m%d)
 
 # CAF version
-CAF_VERSION := LA.UM.7.3.r1-06700-sdm845.0
+CAF_VERSION := LA.UM.7.6.2.r1-06900-89xx.0
 
 ifdef FRED_OFFICIAL
    LIST = $(shell curl -s https://raw.githubusercontent.com/FredProject/platform_vendor_fred/f9x/fred.devices)
