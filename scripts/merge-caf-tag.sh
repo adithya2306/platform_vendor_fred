@@ -3,19 +3,17 @@
 # Basic shell script to merge specified CAF tag in repos tracked by Google's repo tool
 #
 # Usage (in root of ROM source):
-#       repo forall -c bash $(pwd)/vendor/fred/scripts/merge-caf-tag.sh <tag_name> caf
+#       repo forall -c bash $(pwd)/vendor/fred/scripts/merge-caf-tag.sh <tag_name>
 #
 
 TAG=$1
-CAF_REMOTE=$2
-
 GIT_LINK="https://source.codeaurora.org/quic/la/"
 
-if [[ $REPO_REMOTE != $CAF_REMOTE ]]; then
+if [[ $REPO_REMOTE != "caf" ]]; then
 
         # Workaround for build/make as it lies in "platform/build" repo in AOSP/CAF
         if [[ $REPO_PATH = "build/make" ]]; then REPO_PATH="build"; fi
-            
+
         # Check if it is a repo which is forked from AOSP
         wget -q --spider $GIT_LINK/platform/$REPO_PATH
 
@@ -31,7 +29,7 @@ if [[ $REPO_REMOTE != $CAF_REMOTE ]]; then
                 hash=$(git rev-parse HEAD)
 
                 # Merge and inform user on succesful merge, by comparing hash
-                git merge -q --no-ff -m "Merge tag '$TAG' into $branch" FETCH_HEAD 
+                git merge -q -m "Merge tag '$TAG' into $branch" FETCH_HEAD 
                 if [ $? -eq 0 ]; then
                         if [[ $(git rev-parse HEAD) != $hash ]]; then
                                 echo -e "\n\e[34m$REPO_PATH merged succesfully\e[0m\n"
