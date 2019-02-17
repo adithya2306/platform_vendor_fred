@@ -1,10 +1,5 @@
+# FredOS version
 FRED_VERNUM := v1.0
-
-ifndef FRED_BUILD_TYPE
-    FRED_BUILD_TYPE := Unofficial
-endif
-
-TARGET_PRODUCT_SHORT := $(subst fred_,,$(FRED_BUILD_TYPE))
 
 # OTA version
 ROM_VERSION := $(FRED_VERNUM)-$(shell date -u +%Y%m%d)
@@ -12,31 +7,26 @@ ROM_VERSION := $(FRED_VERNUM)-$(shell date -u +%Y%m%d)
 # CAF version
 CAF_VERSION := LA.UM.7.6.2.r1-06900-89xx.0
 
-ifdef FRED_OFFICIAL
-   LIST = $(shell curl -s https://raw.githubusercontent.com/FredProject/platform_vendor_fred/f9x/fred.devices)
-   FOUND_DEVICE =  $(filter $(CURRENT_DEVICE), $(LIST))
+# Official build support
+CURRENT_DEVICE := $(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3)
+FRED_BUILD_TYPE ?= UNOFFICIAL
+
+ifeq ($(FRED_BUILD_TYPE),OFFICIAL)
+  LIST = $(shell curl -s https://raw.githubusercontent.com/FredProject/platform_vendor_fred/f9x/fred.devices)
+  FOUND_DEVICE = $(filter $(CURRENT_DEVICE), $(LIST))
     ifeq ($(FOUND_DEVICE),$(CURRENT_DEVICE))
-      IS_OFFICIAL=true
-      FRED_BUILD_TYPE := Official
-
-PRODUCT_PACKAGES += \
-    Updater
-
-    endif
-    ifneq ($(IS_OFFICIAL), true)
-       FRED_BUILD_TYPE := Unofficial
-       $(error Device is not official "$(FOUND)")
+      PRODUCT_PACKAGES += Updater
+    else
+      $(warning ALERT: Device $(CURRENT_DEVICE) is not official! Going unofficial...)
+      FRED_BUILD_TYPE := UNOFFICIAL
     endif
 endif
 
-# Set all versions
-DATE := $(shell date -u +%Y%m%d)
-FRED_BUILD_DATE := $(shell date -u +%Y%m%d-%H%M)
-FRED_DATE := $(shell date -u +%d-%m-%Y)
-FRED_RELEASETYPE := $(FRED_BUILD)-$(FRED_BUILD_TYPE)-$(DATE)
-FRED_MOD_VERSION := Fred-OS-$(FRED_VERNUM)-$(FRED_BUILD_DATE)-$(FRED_BUILD_TYPE)
-FRED_VERSION := Fred-OS-$(FRED_VERNUM)-$(DATE)-$(FRED_BUILD)-$(FRED_BUILD_TYPE)
-ROM_FINGERPRINT := Fred-OS/$(FRED_VERNUM)/$(PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(FRED_BUILD_DATE)
+# Configure FredOS versions and props
+FRED_DATE := $(shell date -u +%Y%m%d)
+FRED_RELEASETYPE := $(FRED_BUILD)-$(FRED_BUILD_TYPE)-$(FRED_DATE)
+FRED_MOD_VERSION := FredOS-$(FRED_VERNUM)-$(FRED_DATE)-$(FRED_BUILD_TYPE)
+FRED_VERSION := FredOS-$(FRED_VERNUM)-$(FRED_DATE)-$(FRED_BUILD)-$(FRED_BUILD_TYPE)
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.modversion=$(FRED_MOD_VERSION) \
