@@ -3,6 +3,12 @@ for device in $(cat $(gettop)/vendor/fred/fred.devices | sed -e 's/#.*$//' | awk
 done;
 
 # SDClang Environment Variables
-export SDCLANG_AE_CONFIG=vendor/fred/sdclang/sdclangAE.json
-export SDCLANG_CONFIG=vendor/fred/sdclang/sdclang.json
-export SDCLANG_SA_ENABLED=false
+if [[ $SDCLANG != "false" ]]; then
+    echo -e "\nSDCLANG is enabled ! \n"
+    export SDCLANG=true
+    export SDCLANG_AE_CONFIG=vendor/fred/sdclang/sdclangAE.json
+    export SDCLANG_CONFIG=vendor/fred/sdclang/sdclang.json
+    export SDCLANG_SA_ENABLED=false
+else
+    echo -e "\nSDCLANG is disabled ! \n"
+fi
