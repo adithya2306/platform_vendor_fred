@@ -54,6 +54,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
 endif
 
+# SMS App
+PRODUCT_PACKAGES += messaging
+
 # Build Snapdragon apps
 PRODUCT_PACKAGES += \
     SnapdragonGallery \
