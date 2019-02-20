@@ -15,16 +15,17 @@
 # Override undesired Google defaults
 ADDITIONAL_BUILD_PROPERTIES += \
     keyguard.no_require_sim=true \
+    ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent \
     ro.com.android.dateformat=MM-dd-yyyy \
     ro.com.android.wifi-watchlist=GoogleGuest \
+    ro.opa.eligible_device=true \
+    ro.setupwizard.mode=OPTIONAL \
+    ro.setupwizard.require_network=any \
+    ro.setupwizard.rotation_locked=true \
     ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
-    ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
-    ro.setupwizard.require_network=false \
-    ro.setupwizard.enterprise_mode=1 \
-    ro.setupwizard.gservices_delay=-1 \
-    ro.opa.eligible_device=true
+    ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html
 
-# Don't Hide APNs
+# Don't hide APNs
 ADDITIONAL_BUILD_PROPERTIES += persist.sys.hideapn=false
 
 # Allow tethering without provisioning app
@@ -35,3 +36,12 @@ ADDITIONAL_BUILD_PROPERTIES += \
     ro.config.notification_sound=Popcorn.ogg \
     ro.config.alarm_alert=Bright_morning.ogg \
     ro.config.ringtone=Titania.ogg
+
+# Set cache location
+ifeq ($(BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE),)
+ADDITIONAL_BUILD_PROPERTIES += \
+    ro.device.cache_dir=/data/cache
+else
+ADDITIONAL_BUILD_PROPERTIES += \
+    ro.device.cache_dir=/cache
+endif

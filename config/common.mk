@@ -72,7 +72,7 @@ PRODUCT_PACKAGES += \
 
 # Fix Google Dialer
 PRODUCT_COPY_FILES +=  \
-    vendor/fred/prebuilt//etc/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
+    vendor/fred/prebuilt/etc/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
 
 # Include support for GApps backup
 PRODUCT_COPY_FILES += \
@@ -143,6 +143,11 @@ PRODUCT_PACKAGES += libbthost_if
 # MSIM manual provisioning
 PRODUCT_PACKAGES += telephony-ext
 PRODUCT_BOOT_JARS += telephony-ext
+
+# Needed by RIL and for some GApps packages
+PRODUCT_PACKAGES += \
+    librsjni \
+    libprotobuf-cpp-full
 
 # Build WallpaperPicker
 PRODUCT_PACKAGES += WallpaperPicker
