@@ -5,7 +5,7 @@ FRED_VERNUM := v1.0
 ROM_VERSION := $(FRED_VERNUM)-$(shell date -u +%Y%m%d)
 
 # CAF version
-CAF_VERSION := LA.UM.7.6.2.r1-06900-89xx.0
+CAF_VERSION := LA.UM.7.6.r1-04300-89xx.0
 
 # Official build support
 CURRENT_DEVICE := $(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3)
