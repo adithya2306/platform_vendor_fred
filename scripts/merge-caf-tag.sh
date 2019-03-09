@@ -9,7 +9,7 @@
 TAG=$1
 GIT_LINK="https://source.codeaurora.org/quic/la/"
 
-if [[ $REPO_REMOTE != "caf" ]]; then
+if [[ $REPO_REMOTE != "caf" ]] && [[ $REPO_PATH != "manifest" ]]; then
 
         # Workaround for build/make as it lies in "platform/build" repo in AOSP/CAF
         if [[ $REPO_PATH = "build/make" ]]; then REPO_PATH="build"; fi
@@ -31,7 +31,7 @@ if [[ $REPO_REMOTE != "caf" ]]; then
                 # Merge and inform user on succesful merge, by comparing hash
                 git merge -q -m "Merge tag '$TAG' into $branch" FETCH_HEAD 
                 if [ $? -eq 0 ]; then
-                        if [[ $(git rev-parse HEAD) != $hash ]]; then
+                        if [[ $(git rev-parse HEAD) != $hash ]] && [[ $(git diff HEAD $REPO_REMOTE/$branch) ]]; then
                                 echo -e "\n\e[34m$REPO_PATH merged succesfully\e[0m\n"
                         fi
                 else
