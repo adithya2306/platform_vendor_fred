@@ -29,7 +29,7 @@ if [[ $REPO_REMOTE != "caf" ]] && [[ $REPO_PATH != "manifest" ]]; then
                 hash=$(git rev-parse HEAD)
 
                 # Merge and inform user on succesful merge, by comparing hash
-                git merge -q -m "Merge tag '$TAG' into $branch" FETCH_HEAD 
+                git merge -q -m "Merge tag '$TAG' into $branch" FETCH_HEAD &> /dev/null
                 if [ $? -eq 0 ]; then
                         if [[ $(git rev-parse HEAD) != $hash ]] && [[ $(git diff HEAD $REPO_REMOTE/$branch) ]]; then
                                 echo -e "\n\e[34m$REPO_PATH merged succesfully\e[0m\n"
