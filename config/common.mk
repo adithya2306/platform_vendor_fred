@@ -66,6 +66,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Phonograph
 
+# WallsHub
+PRODUCT_PACKAGES += \
+    WallsHub
+
 # Lawnchair
 PRODUCT_PACKAGES += Lawnchair
 PRODUCT_COPY_FILES += \
