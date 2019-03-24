@@ -140,9 +140,6 @@ include vendor/fred/sepolicy/sepolicy.mk
 # Branding
 include vendor/fred/config/branding.mk
 
-# Themes
-include vendor/fred/config/themes.mk
-
 # Bootanimations
 include vendor/fred/config/bootanimation.mk
 
