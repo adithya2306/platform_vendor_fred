@@ -1,5 +1,5 @@
 # FredOS version
-FRED_VERNUM := v1.0
+FRED_VERNUM := v1.1
 
 # OTA version
 ROM_VERSION := $(FRED_VERNUM)-$(shell date -u +%Y%m%d)
