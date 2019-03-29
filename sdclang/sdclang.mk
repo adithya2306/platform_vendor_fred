@@ -15,7 +15,7 @@
 SDCLANG ?= true
 SDCLANG_PATH := vendor/qcom/sdclang-6.0/linux-x86/bin
 SDCLANG_PATH_2 := vendor/qcom/sdclang-6.0/linux-x86/bin
-SDCLANG_FLAGS := -O3 -fvectorize -Wno-vectorizer-no-neon -Wno-user-defined-warnings -mllvm -polly-run-dce -g0 -DNDEBUG
-SDCLANG_FLAGS_2 := -O3 -fvectorize -Wno-vectorizer-no-neon -Wno-user-defined-warnings -mllvm -polly-run-dce -g0 -DNDEBUG
-SDCLANG_COMMON_FLAGS := -O3 -fvectorize -Wno-vectorizer-no-neon -Wno-user-defined-warnings -mllvm -polly-run-dce -g0 -DNDEBUG
+SDCLANG_FLAGS := -O3 -fvectorize -Wno-user-defined-warnings -Wno-vectorizer-no-neon -Wno-unknown-warning-option -Wno-deprecated-register -Wno-tautological-type-limit-compare -Wno-sign-compare -Wno-gnu-folding-constant -mllvm -arm-implicit-it=always -Wno-inline-asm -Wno-unused-command-line-argument -Wno-unused-parameter -g0 -DNDEBUG
+SDCLANG_FLAGS_2 := -O3 -fvectorize -Wno-user-defined-warnings -Wno-vectorizer-no-neon -Wno-unknown-warning-option -Wno-deprecated-register -Wno-tautological-type-limit-compare -Wno-sign-compare -Wno-gnu-folding-constant -mllvm -arm-implicit-it=always -Wno-inline-asm -Wno-unused-command-line-argument -Wno-unused-parameter -g0 -DNDEBUG
+SDCLANG_COMMON_FLAGS := -O3 -fvectorize -Wno-user-defined-warnings -Wno-vectorizer-no-neon -Wno-unknown-warning-option -Wno-deprecated-register -Wno-tautological-type-limit-compare -Wno-sign-compare -Wno-gnu-folding-constant -mllvm -arm-implicit-it=always -Wno-inline-asm -Wno-unused-command-line-argument -Wno-unused-parameter -g0 -DNDEBUG
 SDCLANG_LTO_DEFS := vendor/fred/sdclang/sdllvm-lto-defs.mk
