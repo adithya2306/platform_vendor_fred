@@ -76,7 +76,7 @@ PRODUCT_PACKAGES += \
 # Lawnchair
 PRODUCT_PACKAGES += Lawnchair
 PRODUCT_COPY_FILES += \
-    vendor/fred/prebuilt/etc//permissions/privapp-permissions-lawnchair.xml:system/etc/permissions/privapp-permissions-lawnchair.xml \
+    vendor/fred/prebuilt/etc/permissions/privapp-permissions-lawnchair.xml:system/etc/permissions/privapp-permissions-lawnchair.xml \
     vendor/fred/prebuilt/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml:system/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml
 
 # ViaBrowser
@@ -99,7 +99,7 @@ PRODUCT_COPY_FILES += \
 
 # Fix Google Dialer
 PRODUCT_COPY_FILES +=  \
-    vendor/fred/prebuilt//etc/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
+    vendor/fred/prebuilt/etc/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
 
 # Include support for GApps backup
 PRODUCT_COPY_FILES += \
@@ -125,17 +125,8 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
 SELINUX_IGNORE_NEVERALLOWS := true
 endif
 
-ifneq ($(HOST_OS),linux)
-ifneq ($(sdclang_already_warned),true)
-$(warning **********************************************)
-$(warning * SDCLANG is not supported on non-linux hosts.)
-$(warning **********************************************)
-sdclang_already_warned := true
-endif
-else
-# include definitions for SDCLANG
+# Include definitions for SDCLANG
 include vendor/fred/sdclang/sdclang.mk
-endif
 
 # Include vendor SEPolicy changes
 include vendor/fred/sepolicy/sepolicy.mk
@@ -151,6 +142,9 @@ include vendor/fred/config/accents.mk
 
 # Themes
 include vendor/fred/config/themes.mk
+
+# GApps
+include vendor/gapps/gapps.mk
 
 # TCP Connection Management
 PRODUCT_PACKAGES += tcmiface

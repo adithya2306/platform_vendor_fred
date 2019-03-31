@@ -12,19 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Override undesired Google defaults
+# Misc props
 ADDITIONAL_BUILD_PROPERTIES += \
     keyguard.no_require_sim=true \
-    ro.com.android.dateformat=MM-dd-yyyy \
-    ro.com.android.wifi-watchlist=GoogleGuest \
     ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
     ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
-    ro.setupwizard.require_network=false \
-    ro.setupwizard.enterprise_mode=1 \
-    ro.setupwizard.gservices_delay=-1 \
-    ro.opa.eligible_device=true
+    ro.build.selinux=1 \
+    ro.actionable_compatible_property.enabled=false \
+    ro.com.android.prov_mobiledata=false
 
-# Don't Hide APNs
+# Don't hide APNs
 ADDITIONAL_BUILD_PROPERTIES += persist.sys.hideapn=false
 
 # Allow tethering without provisioning app

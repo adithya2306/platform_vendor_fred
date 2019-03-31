@@ -4,7 +4,7 @@ done;
 
 # SDClang Environment Variables
 if [[ $SDCLANG != "false" ]]; then
-    echo -e "\nSDCLANG is enabled ! \nTo disable it, add 'export SDCLANG=false' in your device's vendorsetup.sh"
+    echo -e "\nSDCLANG is enabled ! \nTo disable it, add 'export SDCLANG=false' in your device's vendorsetup.sh\n"
     export SDCLANG=true
     export SDCLANG_AE_CONFIG=vendor/fred/sdclang/sdclangAE.json
     export SDCLANG_CONFIG=vendor/fred/sdclang/sdclang.json
